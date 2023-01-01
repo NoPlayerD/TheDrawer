@@ -34,13 +34,13 @@ Partial Class Form1
         Me.Button5 = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.EkleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DosyaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.KlasörToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DosyaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OluşturToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.KlasörToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.KonumaGitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AktifKlasörKonumuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UygulamaVeriKonumuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AktifKlasörKonumuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -155,17 +155,17 @@ Partial Class Form1
         Me.EkleToolStripMenuItem.Size = New System.Drawing.Size(43, 20)
         Me.EkleToolStripMenuItem.Text = ".Ekle"
         '
-        'DosyaToolStripMenuItem
-        '
-        Me.DosyaToolStripMenuItem.Name = "DosyaToolStripMenuItem"
-        Me.DosyaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DosyaToolStripMenuItem.Text = "Dosya"
-        '
         'KlasörToolStripMenuItem
         '
         Me.KlasörToolStripMenuItem.Name = "KlasörToolStripMenuItem"
-        Me.KlasörToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.KlasörToolStripMenuItem.Size = New System.Drawing.Size(106, 22)
         Me.KlasörToolStripMenuItem.Text = "Klasör"
+        '
+        'DosyaToolStripMenuItem
+        '
+        Me.DosyaToolStripMenuItem.Name = "DosyaToolStripMenuItem"
+        Me.DosyaToolStripMenuItem.Size = New System.Drawing.Size(106, 22)
+        Me.DosyaToolStripMenuItem.Text = "Dosya"
         '
         'OluşturToolStripMenuItem
         '
@@ -177,7 +177,7 @@ Partial Class Form1
         'KlasörToolStripMenuItem1
         '
         Me.KlasörToolStripMenuItem1.Name = "KlasörToolStripMenuItem1"
-        Me.KlasörToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.KlasörToolStripMenuItem1.Size = New System.Drawing.Size(106, 22)
         Me.KlasörToolStripMenuItem1.Text = "Klasör"
         '
         'KonumaGitToolStripMenuItem
@@ -187,17 +187,17 @@ Partial Class Form1
         Me.KonumaGitToolStripMenuItem.Size = New System.Drawing.Size(84, 20)
         Me.KonumaGitToolStripMenuItem.Text = ".Konuma git"
         '
-        'AktifKlasörKonumuToolStripMenuItem
-        '
-        Me.AktifKlasörKonumuToolStripMenuItem.Name = "AktifKlasörKonumuToolStripMenuItem"
-        Me.AktifKlasörKonumuToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
-        Me.AktifKlasörKonumuToolStripMenuItem.Text = "Aktif klasör konumu"
-        '
         'UygulamaVeriKonumuToolStripMenuItem
         '
         Me.UygulamaVeriKonumuToolStripMenuItem.Name = "UygulamaVeriKonumuToolStripMenuItem"
         Me.UygulamaVeriKonumuToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
         Me.UygulamaVeriKonumuToolStripMenuItem.Text = "Uygulama veri konumu"
+        '
+        'AktifKlasörKonumuToolStripMenuItem
+        '
+        Me.AktifKlasörKonumuToolStripMenuItem.Name = "AktifKlasörKonumuToolStripMenuItem"
+        Me.AktifKlasörKonumuToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
+        Me.AktifKlasörKonumuToolStripMenuItem.Text = "Aktif klasör konumu"
         '
         'Form1
         '
