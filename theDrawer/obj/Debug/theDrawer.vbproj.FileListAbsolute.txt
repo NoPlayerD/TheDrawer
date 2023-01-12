@@ -10,3 +10,14 @@ C:\Users\NoPlayer.D\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.vbproj.Gener
 C:\Users\NoPlayer.D\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.exe
 C:\Users\NoPlayer.D\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.xml
 C:\Users\NoPlayer.D\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.pdb
+C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\bin\Debug\theDrawer.exe.config
+C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.exe
+C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.xml
+C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.pdb
+C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\bin\Debug\theDrawer.exe
+C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\bin\Debug\theDrawer.pdb
+C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\bin\Debug\theDrawer.xml
+C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.vbprojResolveAssemblyReference.cache
+C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.Form1.resources
+C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.Resources.resources
+C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.vbproj.GenerateResource.Cache
