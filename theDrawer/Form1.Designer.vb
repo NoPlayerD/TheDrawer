@@ -116,6 +116,7 @@ Partial Class Form1
         '
         'Button3
         '
+        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Button3.Location = New System.Drawing.Point(12, 386)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(25, 25)
@@ -124,6 +125,7 @@ Partial Class Form1
         '
         'Button4
         '
+        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button4.Location = New System.Drawing.Point(682, 386)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 25)
@@ -133,6 +135,7 @@ Partial Class Form1
         '
         'Button5
         '
+        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button5.Location = New System.Drawing.Point(621, 386)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(25, 25)

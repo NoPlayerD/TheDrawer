@@ -41,6 +41,18 @@
 
             '---------------
 
+            ListView1.Width = vx
+            ListView1.Height = y1
+
+            ListView1.Left = ListView2.Left - ListView1.Width - 15
+
+            '---------------
+
+            GroupBox1.Width = bx
+            GroupBox1.Height = y1 + 5
+
+            ListBox1.Width = bx
+            ListBox1.Height = y1 - 13
 
         Else
             ListBox2.Location = New Point(620, 48)
@@ -48,6 +60,14 @@
 
             ListView2.Location = New Point(381, 48)
             ListView2.Size = New Size(220, 330)
+
+            ListView1.Location = New Point(155, 48)
+            ListView1.Size = New Size(220, 330)
+
+            GroupBox1.Location = New Point(12, 43)
+            GroupBox1.Size = New Size(137, 337)
+            ListBox1.Location = New Point(0, 19)
+            ListBox1.Size = New Size(137, 316)
         End If
 
 
