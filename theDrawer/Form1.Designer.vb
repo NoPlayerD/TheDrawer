@@ -99,6 +99,7 @@ Partial Class Form1
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(25, 25)
         Me.Button3.TabIndex = 5
+        Me.Button3.Text = "O"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Button4

@@ -1,4 +1,7 @@
 ﻿Public Class Form1
+
+    Dim ct As Boolean 'gizleme butonu - ctrl
+
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         'Tam ekran
 
@@ -11,57 +14,92 @@
             Me.WindowState = FormWindowState.Normal
             Button2.Text = "FullScreen"
         End If
-        t()
+        t(1)
 
     End Sub
-    Private Sub t()
+    Private Sub t(mode As Integer)
         Dim x As Integer = Me.Width
         Dim y As Integer = Me.Height
 
         If Me.WindowState = FormWindowState.Maximized Then
-
             Dim y1 As Integer = y - 154
-            Debug.WriteLine(y1)
+
             Dim cx As Integer = x - 75 'kontrollü x
-            Dim bx As Integer = (cx / 6) 'listbox x
-            Dim vx As Integer = (cx / 6) * 2 'listview x
 
 
-            '---------------
 
-            ListBox2.Width = bx
-            ListBox2.Left = x - ListBox2.Width - 24
+            If mode = 1 Then
+                Dim bx As Integer = (cx / 6) 'listbox x
+                Dim vx As Integer = (cx / 6) * 2 'listview x
 
-            ListBox2.Height = y1 + 10
+                ListBox1.Show()
+                '----------------
 
-            '---------------
+                ListBox2.Width = bx
+                ListBox2.Left = x - ListBox2.Width - 24
 
-            ListView2.Width = vx
-            ListView2.Height = y1
+                ListBox2.Height = y1 + 10
 
-            ListView2.Left = ListBox2.Left - ListView2.Width - 15
+                '---------------
 
-            '---------------
+                ListView2.Width = vx
+                ListView2.Height = y1
 
-            ListView1.Width = vx
-            ListView1.Height = y1
+                ListView2.Left = ListBox2.Left - ListView2.Width - 15
 
-            ListView1.Left = ListView2.Left - ListView1.Width - 15
+                '---------------
 
-            '---------------
+                ListView1.Width = vx
+                ListView1.Height = y1
 
-            'GroupBox1.Width = bx
-            'GroupBox1.Height = y1 + 5
+                ListView1.Left = ListView2.Left - ListView1.Width - 15
 
-            ListBox1.Width = bx
-            ListBox1.Height = y1 + 10
+                '---------------
 
-            '---------------
+                'GroupBox1.Width = bx
+                'GroupBox1.Height = y1 + 5
 
-            Button2.Left = ListBox2.Left + ListBox2.Width - Button2.Width
-            Button4.Left = ListBox2.Left + ListBox2.Width - Button4.Width
+                ListBox1.Width = bx
+                ListBox1.Height = y1 + 10
+
+                '---------------
+
+                Button2.Left = ListBox2.Left + ListBox2.Width - Button2.Width
+                Button4.Left = ListBox2.Left + ListBox2.Width - Button4.Width
+
+            ElseIf mode = 2 Then
+                Dim bx As Integer = (cx / 5)
+                Dim vx As Integer = (cx / 5) * 2
+
+                ListBox1.Hide()
+                '----------------
+
+                ListBox2.Width = bx
+                ListBox2.Left = x - ListBox2.Width - 24
+
+                ListBox2.Height = y1 + 10
+
+                '---------------
+
+                ListView2.Width = vx
+                ListView2.Height = y1
+
+                ListView2.Left = ListBox2.Left - ListView2.Width - 15
+
+                '---------------
+
+                ListView1.Width = vx
+                ListView1.Height = y1
+
+                ListView1.Left = Button1.Left 'ListView2.Left - ListView1.Width - 15
+            End If
+
+
 
         Else
+
+            ListBox1.Show()
+
             ListBox2.Location = New Point(620, 48)
             ListBox2.Size = New Size(137, 329)
 
@@ -81,6 +119,23 @@
         End If
 
 
+
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+
+        If ct = False Then
+            t(2)
+            ct = True
+            Exit Sub
+        End If
+
+
+        If ct = True Then
+            t(1)
+            ct = False
+            Exit Sub
+        End If
 
     End Sub
 End Class
