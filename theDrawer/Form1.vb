@@ -21,12 +21,10 @@
         Dim x As Integer = Me.Width
         Dim y As Integer = Me.Height
 
+
         If Me.WindowState = FormWindowState.Maximized Then
             Dim y1 As Integer = y - 154
-
             Dim cx As Integer = x - 75 'kontrollü x
-
-
 
             If mode = 1 Then
                 Dim bx As Integer = (cx / 6) 'listbox x
@@ -92,13 +90,17 @@
                 ListView1.Height = y1
 
                 ListView1.Left = Button1.Left 'ListView2.Left - ListView1.Width - 15
+                ListView2.Left = ListView1.Left + ListView1.Width + 10
             End If
 
-
+            Button6.Left = ListView1.Left
+            Button6.Width = ListView1.Width * 2 + 15
+            Button6.Show()
 
         Else
 
             ListBox1.Show()
+            Button6.Hide()
 
             ListBox2.Location = New Point(620, 48)
             ListBox2.Size = New Size(137, 329)
@@ -137,5 +139,18 @@
             Exit Sub
         End If
 
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Hide()
+        Form2.Show()
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Button6.Hide()
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Application.Exit()
     End Sub
 End Class

@@ -21,3 +21,4 @@ C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.vbprojResolveA
 C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.Form1.resources
 C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.Resources.resources
 C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.vbproj.GenerateResource.Cache
+C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.Form2.resources

@@ -40,6 +40,7 @@ Partial Class Form1
         Me.UygulamaVeriKonumuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AktifKlasörKonumuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
@@ -48,7 +49,7 @@ Partial Class Form1
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Button1"
+        Me.Button1.Text = "Settings"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
@@ -191,6 +192,16 @@ Partial Class Form1
         Me.ListBox1.Size = New System.Drawing.Size(137, 329)
         Me.ListBox1.TabIndex = 2
         '
+        'Button6
+        '
+        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
+        Me.Button6.Location = New System.Drawing.Point(155, 0)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(75, 34)
+        Me.Button6.TabIndex = 9
+        Me.Button6.Text = "EXIT"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -198,6 +209,7 @@ Partial Class Form1
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(769, 446)
+        Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
@@ -239,4 +251,5 @@ Partial Class Form1
     Friend WithEvents UygulamaVeriKonumuToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AktifKlasörKonumuToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents Button6 As Button
 End Class
