@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.ListView1 = New System.Windows.Forms.ListView()
@@ -31,6 +32,14 @@ Partial Class Form1
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.EkleToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DosyaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.KlasörToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OluşturToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.KlasörToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenLocationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CategorieLocToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DataLocToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EkleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.KlasörToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DosyaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -41,6 +50,9 @@ Partial Class Form1
         Me.AktifKlasörKonumuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.imageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -67,6 +79,7 @@ Partial Class Form1
         '
         Me.ListView1.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.ListView1.ForeColor = System.Drawing.Color.White
+        Me.ListView1.LargeImageList = Me.imageList1
         Me.ListView1.Location = New System.Drawing.Point(155, 48)
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Size = New System.Drawing.Size(220, 330)
@@ -125,11 +138,63 @@ Partial Class Form1
         'MenuStrip1
         '
         Me.MenuStrip1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EkleToolStripMenuItem1, Me.OluşturToolStripMenuItem1, Me.OpenLocationToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 422)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(769, 24)
         Me.MenuStrip1.TabIndex = 8
         Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'EkleToolStripMenuItem1
+        '
+        Me.EkleToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DosyaToolStripMenuItem1, Me.KlasörToolStripMenuItem2})
+        Me.EkleToolStripMenuItem1.Name = "EkleToolStripMenuItem1"
+        Me.EkleToolStripMenuItem1.Size = New System.Drawing.Size(41, 20)
+        Me.EkleToolStripMenuItem1.Text = "Add"
+        '
+        'DosyaToolStripMenuItem1
+        '
+        Me.DosyaToolStripMenuItem1.Name = "DosyaToolStripMenuItem1"
+        Me.DosyaToolStripMenuItem1.Size = New System.Drawing.Size(107, 22)
+        Me.DosyaToolStripMenuItem1.Text = "File"
+        '
+        'KlasörToolStripMenuItem2
+        '
+        Me.KlasörToolStripMenuItem2.Name = "KlasörToolStripMenuItem2"
+        Me.KlasörToolStripMenuItem2.Size = New System.Drawing.Size(107, 22)
+        Me.KlasörToolStripMenuItem2.Text = "Folder"
+        '
+        'OluşturToolStripMenuItem1
+        '
+        Me.OluşturToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KlasörToolStripMenuItem3})
+        Me.OluşturToolStripMenuItem1.Name = "OluşturToolStripMenuItem1"
+        Me.OluşturToolStripMenuItem1.Size = New System.Drawing.Size(53, 20)
+        Me.OluşturToolStripMenuItem1.Text = "Create"
+        '
+        'KlasörToolStripMenuItem3
+        '
+        Me.KlasörToolStripMenuItem3.Name = "KlasörToolStripMenuItem3"
+        Me.KlasörToolStripMenuItem3.Size = New System.Drawing.Size(107, 22)
+        Me.KlasörToolStripMenuItem3.Text = "Folder"
+        '
+        'OpenLocationToolStripMenuItem
+        '
+        Me.OpenLocationToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CategorieLocToolStripMenuItem, Me.DataLocToolStripMenuItem})
+        Me.OpenLocationToolStripMenuItem.Name = "OpenLocationToolStripMenuItem"
+        Me.OpenLocationToolStripMenuItem.Size = New System.Drawing.Size(97, 20)
+        Me.OpenLocationToolStripMenuItem.Text = "Open Location"
+        '
+        'CategorieLocToolStripMenuItem
+        '
+        Me.CategorieLocToolStripMenuItem.Name = "CategorieLocToolStripMenuItem"
+        Me.CategorieLocToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CategorieLocToolStripMenuItem.Text = "Categorie Loc."
+        '
+        'DataLocToolStripMenuItem
+        '
+        Me.DataLocToolStripMenuItem.Name = "DataLocToolStripMenuItem"
+        Me.DataLocToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DataLocToolStripMenuItem.Text = "Data Loc."
         '
         'EkleToolStripMenuItem
         '
@@ -197,10 +262,21 @@ Partial Class Form1
         Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Button6.Location = New System.Drawing.Point(155, 0)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(75, 34)
+        Me.Button6.Size = New System.Drawing.Size(75, 35)
         Me.Button6.TabIndex = 9
         Me.Button6.Text = "EXIT"
+        Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1000
+        '
+        'imageList1
+        '
+        Me.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        Me.imageList1.ImageSize = New System.Drawing.Size(28, 28)
+        Me.imageList1.TransparentColor = System.Drawing.Color.Transparent
         '
         'Form1
         '
@@ -228,6 +304,8 @@ Partial Class Form1
         Me.Opacity = 0.85R
         Me.ShowIcon = False
         Me.Text = "TheDrawer"
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -252,4 +330,14 @@ Partial Class Form1
     Friend WithEvents AktifKlasörKonumuToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents Button6 As Button
+    Friend WithEvents EkleToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents DosyaToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents KlasörToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents OluşturToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents KlasörToolStripMenuItem3 As ToolStripMenuItem
+    Friend WithEvents OpenLocationToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CategorieLocToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DataLocToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents imageList1 As ImageList
 End Class
