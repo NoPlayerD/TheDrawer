@@ -143,7 +143,7 @@ Public Class Form1
         name = InputBox("Enter a folder name: ")
 
         Try
-            Directory.CreateDirectory(MainPath + "\Categories\" + name)
+            Directory.CreateDirectory(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + name)
         Catch ex As Exception
             MsgBox("Error: code 1")
         End Try
@@ -213,10 +213,13 @@ Public Class Form1
                     ListView2.Items.Clear()
                     For Each kats In My.Computer.FileSystem.GetDirectories(CPath)
                         Dim sonuc As String = kats.Split("\").Last
-                        ListView2.Items.Add(sonuc)
+                        ListView2.Items.Add(sonuc, 0)
                     Next
                 End If
             End If
+
+            '--------------------------------------------------
+
 
             '----------------------------------------------------------------------------------------------------
 
