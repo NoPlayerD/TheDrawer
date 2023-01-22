@@ -91,7 +91,7 @@ Partial Class Form1
         'imageList1
         '
         Me.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
-        Me.imageList1.ImageSize = New System.Drawing.Size(28, 28)
+        Me.imageList1.ImageSize = New System.Drawing.Size(35, 35)
         Me.imageList1.TransparentColor = System.Drawing.Color.Transparent
         '
         'ListView2
@@ -114,11 +114,13 @@ Partial Class Form1
         'ListBox2
         '
         Me.ListBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.ListBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.ListBox2.ForeColor = System.Drawing.Color.White
         Me.ListBox2.FormattingEnabled = True
+        Me.ListBox2.ItemHeight = 16
         Me.ListBox2.Location = New System.Drawing.Point(620, 48)
         Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(137, 329)
+        Me.ListBox2.Size = New System.Drawing.Size(137, 324)
         Me.ListBox2.TabIndex = 3
         '
         'Button3
@@ -265,11 +267,13 @@ Partial Class Form1
         'ListBox1
         '
         Me.ListBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.ListBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.ListBox1.ForeColor = System.Drawing.Color.White
         Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.ItemHeight = 16
         Me.ListBox1.Location = New System.Drawing.Point(12, 48)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(137, 329)
+        Me.ListBox1.Size = New System.Drawing.Size(137, 324)
         Me.ListBox1.TabIndex = 2
         '
         'Button6

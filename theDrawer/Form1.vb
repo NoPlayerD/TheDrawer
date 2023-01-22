@@ -29,7 +29,6 @@ Public Class Form1
             Dim y1 As Integer = y - 154
             Dim cx As Integer = x - 75 'kontrollü x
 
-
             If mode = 1 Then
                 Dim bx As Integer = (cx / 6) 'listbox x
                 Dim vx As Integer = (cx / 6) * 2 'listview x
@@ -155,98 +154,117 @@ Public Class Form1
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        Reload("all")
+        ReloadL()
     End Sub
 
-    Private Function Reload(c As String)
-        'reloads
+    Private Function ReloadL()
+        '0,5 saniyede 1 kez
 
+        '----------------------------------------------------------------------------------------------------
+
+        'item reload (listbox, listview)
         Try
+            Dim CPath As String = MainPath + "\Categories\" + ListBox1.SelectedItem.ToString
+            Dim f1 As Integer = My.Computer.FileSystem.GetFiles(CPath).Count
+            Dim f2 As Integer = My.Computer.FileSystem.GetDirectories(CPath).Count
+            Dim fsayisi As Integer = f1 + f2
+            Dim isayisi As Integer = ListBox2.Items.Count
 
-            'item reload (listbox, listview)
-            If c = "item" Then
+            If Not isayisi = fsayisi Then
+                ListBox2.Items.Clear()
 
-                Dim CPath As String = MainPath + "\Categories\" + ListBox1.SelectedItem.ToString
-                Dim fsayisi As Integer = My.Computer.FileSystem.GetFiles(CPath).Count
-                Dim isayisi As Integer = ListBox2.Items.Count
-                If Not isayisi = fsayisi Then
-                    ListBox2.Items.Clear()
-                    For Each maddeler In My.Computer.FileSystem.GetFiles(CPath)
-                        Dim sonuc As String = maddeler.Split("\").Last
-                        ListBox2.Items.Add(sonuc)
-                    Next
-                End If
-                '--------------------------------------------------
-                Dim di As New IO.DirectoryInfo(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\")
-                If Not fsayisi = isayisi Then
-                    ImageList1.Images.Clear()
-                    ListView1.Items.Clear()
-                    ListView1.BeginUpdate()
-                    For Each fi As IO.FileInfo In di.GetFiles("*")
-
-                        Dim icons As Icon = SystemIcons.WinLogo
-                        Dim li As New ListViewItem(fi.Name, 1)
-
-                        If Not (ImageList1.Images.ContainsKey(fi.FullName)) Then
-                            icons = System.Drawing.Icon.ExtractAssociatedIcon(fi.FullName)
-                            ImageList1.Images.Add(fi.FullName, icons)
-                        End If
-
-                        icons = Icon.ExtractAssociatedIcon(fi.FullName)
-                        ImageList1.Images.Add(icons)
-                        ListView1.Items.Add(fi.Name, fi.FullName)
-
-                        ListView1.EndUpdate()
-                    Next
-                End If
+                For Each maddeler In My.Computer.FileSystem.GetFiles(CPath)
+                    Dim sonuc As String = maddeler.Split("\").Last
+                    ListBox2.Items.Add(sonuc)
+                Next
+                For Each maddeler In My.Computer.FileSystem.GetDirectories(CPath)
+                    Dim sonuc As String = maddeler.Split("\").Last
+                    ListBox2.Items.Add(sonuc)
+                Next
             End If
 
-            '----------------------------------------------------------------------------------------------------
-
-            'klasör reload
-            If c = "folder" Then
-
-                Dim CPath As String = MainPath + "\Categories\" + ListBox1.SelectedItem.ToString
-                Dim dsayisi As Integer = My.Computer.FileSystem.GetDirectories(CPath + "\").Count
-                Dim odsayisi As Integer = ListView2.Items.Count
-                If Not odsayisi = dsayisi Then
-                    ListView2.Items.Clear()
-                    For Each kats In My.Computer.FileSystem.GetDirectories(CPath)
-                        Dim sonuc As String = kats.Split("\").Last
-                        ListView2.Items.Add(sonuc, 0)
-                    Next
-                End If
-            End If
 
             '--------------------------------------------------
 
+            Dim di As New IO.DirectoryInfo(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\")
+            If Not fsayisi = isayisi Then
+                imageList1.Images.Clear()
+                ListView1.Items.Clear()
+                ListView1.BeginUpdate()
+                For Each fi As IO.FileInfo In di.GetFiles("*")
 
-            '----------------------------------------------------------------------------------------------------
+                    Dim icons As Icon = SystemIcons.WinLogo
+                    Dim li As New ListViewItem(fi.Name, 1)
 
-            'kategori reload
-            If c = "category" Then
-                Dim Kisimleri = My.Computer.FileSystem.GetDirectories(MainPath + "\Categories\")
-                Dim Ksayisi = My.Computer.FileSystem.GetDirectories(MainPath + "\Categories\").Count
-                If Not ListBox1.Items.Count = Ksayisi Then
-                    ListBox1.Items.Clear()
-                    For Each isim As String In Kisimleri
-                        Dim result As String = Path.GetFileName(isim)
-                        ListBox1.Items.Add(result)
-                    Next
-                End If
+                    If Not (imageList1.Images.ContainsKey(fi.FullName)) Then
+                        icons = System.Drawing.Icon.ExtractAssociatedIcon(fi.FullName)
+                        imageList1.Images.Add(fi.FullName, icons)
+                    End If
+
+                    icons = Icon.ExtractAssociatedIcon(fi.FullName)
+                    imageList1.Images.Add(icons)
+                    ListView1.Items.Add(fi.Name, fi.FullName)
+
+                    ListView1.EndUpdate()
+                Next
             End If
-
-            '----------------------------------------------------------------------------------------------------
-
-            If c = "all" Then
-                Reload("item")
-                Reload("category")
-                Reload("folder")
-            End If
-
         Catch ex As Exception
+            Debug.WriteLine("hata-1")
         End Try
 
-        Return c
+
+        '----------------------------------------------------------------------------------------------------
+
+        'klasör reload (listview 2, listbox2)
+        Try
+            Dim CPath As String = MainPath + "\Categories\" + ListBox1.SelectedItem.ToString
+            Dim dsayisi As Integer = My.Computer.FileSystem.GetDirectories(CPath + "\").Count
+            Dim odsayisi As Integer = ListView2.Items.Count
+            If Not odsayisi = dsayisi Then
+                ListView2.Items.Clear()
+                For Each kats In My.Computer.FileSystem.GetDirectories(CPath)
+                    Dim sonuc As String = kats.Split("\").Last
+                    ListView2.Items.Add(sonuc, 0)
+                Next
+            End If
+        Catch ex As Exception
+            Debug.WriteLine("hata-2")
+        End Try
+
+        '--------------------------------------------------
+
+        'Try
+        'Dim CPath As String = MainPath + "\Categories\" + ListBox1.SelectedItem.ToString
+        'Dim fsayisi As Integer = My.Computer.FileSystem.GetDirectories(CPath).Count
+        'Dim isayisi As Integer = ListBox2.Items.Count
+        'If Not isayisi = fsayisi + My.Computer.FileSystem.GetFiles(CPath).Count Then
+        'ListBox2.Items.Clear() '!!
+        'For Each maddeler In My.Computer.FileSystem.GetDirectories(CPath)
+        'Dim sonuc As String = maddeler.Split("\").Last
+        'ListBox2.Items.Add(sonuc)
+        'Next
+        'End If
+        'Catch ex As Exception
+        'Debug.WriteLine("hata-3")
+        'End Try
+
+
+        '----------------------------------------------------------------------------------------------------
+
+        'kategori reload (listbox1)
+        Try
+            Dim Kisimleri = My.Computer.FileSystem.GetDirectories(MainPath + "\Categories\")
+            Dim Ksayisi = My.Computer.FileSystem.GetDirectories(MainPath + "\Categories\").Count
+            If Not ListBox1.Items.Count = Ksayisi Then
+                ListBox1.Items.Clear()
+                For Each isim As String In Kisimleri
+                    Dim result As String = Path.GetFileName(isim)
+                    ListBox1.Items.Add(result)
+                Next
+            End If
+        Catch ex As Exception
+            Debug.WriteLine("hata-4")
+        End Try
+
     End Function
 End Class
