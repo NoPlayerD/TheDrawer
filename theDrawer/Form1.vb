@@ -150,7 +150,11 @@ Public Class Form1
     End Sub
 
     Private Sub DataLocToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DataLocToolStripMenuItem.Click
-        Process.Start(MainPath)
+        Try
+            Process.Start(MainPath)
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -162,7 +166,7 @@ Public Class Form1
 
         '----------------------------------------------------------------------------------------------------
 
-        'item reload (listbox, listview)
+        'item + folder reload (listbox2)
         Try
             Dim CPath As String = MainPath + "\Categories\" + ListBox1.SelectedItem.ToString
             Dim f1 As Integer = My.Computer.FileSystem.GetFiles(CPath).Count
@@ -182,9 +186,16 @@ Public Class Form1
                     ListBox2.Items.Add(sonuc)
                 Next
             End If
+        Catch ex As Exception
+        End Try
 
+        '--------------------------------------------------
 
-            '--------------------------------------------------
+        'item reload (listview1)
+        Try
+            Dim CPath As String = MainPath + "\Categories\" + ListBox1.SelectedItem.ToString
+            Dim fsayisi As Integer = My.Computer.FileSystem.GetFiles(CPath).Count
+            Dim isayisi As Integer = ListView1.Items.Count
 
             Dim di As New IO.DirectoryInfo(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\")
             If Not fsayisi = isayisi Then
@@ -209,13 +220,12 @@ Public Class Form1
                 Next
             End If
         Catch ex As Exception
-            Debug.WriteLine("hata-1")
         End Try
 
 
         '----------------------------------------------------------------------------------------------------
 
-        'klasör reload (listview 2, listbox2)
+        'folder reload (listview 2)
         Try
             Dim CPath As String = MainPath + "\Categories\" + ListBox1.SelectedItem.ToString
             Dim dsayisi As Integer = My.Computer.FileSystem.GetDirectories(CPath + "\").Count
@@ -228,26 +238,7 @@ Public Class Form1
                 Next
             End If
         Catch ex As Exception
-            Debug.WriteLine("hata-2")
         End Try
-
-        '--------------------------------------------------
-
-        'Try
-        'Dim CPath As String = MainPath + "\Categories\" + ListBox1.SelectedItem.ToString
-        'Dim fsayisi As Integer = My.Computer.FileSystem.GetDirectories(CPath).Count
-        'Dim isayisi As Integer = ListBox2.Items.Count
-        'If Not isayisi = fsayisi + My.Computer.FileSystem.GetFiles(CPath).Count Then
-        'ListBox2.Items.Clear() '!!
-        'For Each maddeler In My.Computer.FileSystem.GetDirectories(CPath)
-        'Dim sonuc As String = maddeler.Split("\").Last
-        'ListBox2.Items.Add(sonuc)
-        'Next
-        'End If
-        'Catch ex As Exception
-        'Debug.WriteLine("hata-3")
-        'End Try
-
 
         '----------------------------------------------------------------------------------------------------
 
@@ -263,8 +254,61 @@ Public Class Form1
                 Next
             End If
         Catch ex As Exception
-            Debug.WriteLine("hata-4")
         End Try
 
     End Function
+
+    Private Sub ListView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView1.MouseDoubleClick
+        ItemStart(ListView1.FocusedItem.Text, 0)
+    End Sub
+
+    Private Function ItemStart(item As String, smod As Integer)
+        'item başlatma
+
+        Try
+            Dim lpath As String = MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\"
+
+            If smod = 0 Then
+                Process.Start(lpath + item)
+            ElseIf smod = 1 Then
+
+                Dim path As String = lpath
+                Dim Proc As String = "Explorer.exe"
+                Dim Args As String =
+       ControlChars.Quote &
+       IO.Path.Combine(path, item) &
+       ControlChars.Quote
+                Process.Start(Proc, Args)
+
+            End If
+        Catch ex As Exception
+
+            Try
+                Dim myitem As String = MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + item
+
+                Dim psi = New ProcessStartInfo With {.FileName = "C:\Windows\SysNative\cmd.exe", .Arguments = "/C start """" " + myitem, .UseShellExecute = True, .CreateNoWindow = True, .WindowStyle = ProcessWindowStyle.Hidden}
+                Process.Start(psi)
+            Catch exx As Exception
+            End Try
+
+        End Try
+
+        Return item
+    End Function
+
+    Private Sub CategorieLocToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CategorieLocToolStripMenuItem.Click
+        Try
+            Process.Start(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub ListView2_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView2.MouseDoubleClick
+        ItemStart(ListView2.FocusedItem.Text, 1)
+    End Sub
+
+    Private Sub ListBox2_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListBox2.MouseDoubleClick
+        ItemStart(ListBox2.SelectedItem.ToString, 0)
+    End Sub
 End Class
