@@ -154,6 +154,7 @@ Public Class Form1
 
             '-----
 
+
             'item reload (listview1)
             Try
                 Dim CPath As String = MainPath + "\Categories\" + ListBox1.SelectedItem.ToString
@@ -444,11 +445,13 @@ Public Class Form1
         Dim item
         Dim type As Integer
         Dim err As String
+        Dim sure As String
 
         Try
             If ListBox1.SelectedIndex >= 0 Then
                 item = ListBox1.SelectedItem.ToString
                 type = 1
+                sure = InputBox("Are you sure about delete the selected category? (y/n):")
             End If
         Catch ex As Exception
         End Try
@@ -470,7 +473,7 @@ Public Class Form1
         End Try
 
         Try
-            If ListBox2.SelectedIndex > 0 Then
+            If ListBox2.SelectedIndex >= 0 Then
                 item = ListBox2.SelectedItem.ToString
                 type = 2
                 err = InputBox("Is your choice a file(d) or a folder(k)?")
@@ -483,21 +486,27 @@ Public Class Form1
 
         Try
             If type = 1 Then
-                Timer1.Stop()
-                FileSystem.Kill(MainPath + "\Categories\" + item + "\*.*")
-                Directory.Delete(MainPath + "\Categories\" + item)
-                Timer1.Start()
+                If sure = "y" Then
+                    FileSystem.Kill(MainPath + "\Categories\" + item + "\*.*")
+                    Directory.Delete(MainPath + "\Categories\" + item + "\*")
+                    Directory.Delete(MainPath + "\Categories\" + item)
+                End If
             ElseIf type = 0 Then
                 FileSystem.Kill(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + item)
             ElseIf type = 2 Then
                 If err = "k" Then
                     Directory.Delete(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + item)
-                Else
+                ElseIf err = "d" Then
                     FileSystem.Kill(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + item)
                 End If
                 'klasör ve kategorileri silme: .. ile birlikte içindekileri de sil
             End If
         Catch ex As Exception
+            If sure = "y" Then
+                If Directory.Exists(MainPath + "\Categories\" + item) Then
+                    MsgBox("Please manually delete your files/folders in the category..")
+                End If
+            End If
         End Try
 
     End Sub
