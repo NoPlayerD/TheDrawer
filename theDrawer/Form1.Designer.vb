@@ -54,6 +54,7 @@ Partial Class Form1
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.CategorieToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -185,7 +186,7 @@ Partial Class Form1
         '
         'OluşturToolStripMenuItem1
         '
-        Me.OluşturToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KlasörToolStripMenuItem3})
+        Me.OluşturToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KlasörToolStripMenuItem3, Me.CategorieToolStripMenuItem})
         Me.OluşturToolStripMenuItem1.Name = "OluşturToolStripMenuItem1"
         Me.OluşturToolStripMenuItem1.Size = New System.Drawing.Size(53, 20)
         Me.OluşturToolStripMenuItem1.Text = "Create"
@@ -193,7 +194,7 @@ Partial Class Form1
         'KlasörToolStripMenuItem3
         '
         Me.KlasörToolStripMenuItem3.Name = "KlasörToolStripMenuItem3"
-        Me.KlasörToolStripMenuItem3.Size = New System.Drawing.Size(107, 22)
+        Me.KlasörToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
         Me.KlasörToolStripMenuItem3.Text = "Folder"
         '
         'OpenLocationToolStripMenuItem
@@ -206,8 +207,8 @@ Partial Class Form1
         'CategorieLocToolStripMenuItem
         '
         Me.CategorieLocToolStripMenuItem.Name = "CategorieLocToolStripMenuItem"
-        Me.CategorieLocToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
-        Me.CategorieLocToolStripMenuItem.Text = "Categorie Loc."
+        Me.CategorieLocToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CategorieLocToolStripMenuItem.Text = "Category Loc."
         '
         'DataLocToolStripMenuItem
         '
@@ -293,6 +294,12 @@ Partial Class Form1
         '
         Me.Timer1.Interval = 500
         '
+        'CategorieToolStripMenuItem
+        '
+        Me.CategorieToolStripMenuItem.Name = "CategorieToolStripMenuItem"
+        Me.CategorieToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CategorieToolStripMenuItem.Text = "Category"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -356,4 +363,5 @@ Partial Class Form1
     Friend WithEvents Timer1 As Timer
     Friend WithEvents imageList1 As ImageList
     Friend WithEvents imageList2 As ImageList
+    Friend WithEvents CategorieToolStripMenuItem As ToolStripMenuItem
 End Class
