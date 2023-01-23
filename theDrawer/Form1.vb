@@ -198,10 +198,15 @@ Public Class Form1
             Dim isayisi As Integer = ListView1.Items.Count
 
             Dim di As New IO.DirectoryInfo(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\")
-            If Not fsayisi = isayisi Then
+            If Not isayisi = fsayisi Then
                 imageList1.Images.Clear()
                 ListView1.Items.Clear()
                 ListView1.BeginUpdate()
+                If fsayisi = 1 Then
+                    fcontrol(0)
+                ElseIf fsayisi >= 3 Then
+                    fcontrol(1)
+                End If
                 For Each fi As IO.FileInfo In di.GetFiles("*")
 
                     Dim icons As Icon = SystemIcons.WinLogo
@@ -215,7 +220,6 @@ Public Class Form1
                     icons = Icon.ExtractAssociatedIcon(fi.FullName)
                     imageList1.Images.Add(icons)
                     ListView1.Items.Add(fi.Name, fi.FullName)
-
                     ListView1.EndUpdate()
                 Next
             End If
@@ -257,6 +261,24 @@ Public Class Form1
         End Try
 
     End Function
+
+    Private Sub fcontrol(a As Integer)
+        Dim file As System.IO.StreamWriter
+
+        If a = 0 Then
+            Try
+                file = My.Computer.FileSystem.OpenTextFileWriter(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\DATA CONTROL.txt", True)
+                file.WriteLine("This file appears if there is 1 file in this category; if the number of files exceeds 1, it disappears.")
+                file.Close()
+            Catch ex As Exception
+            End Try
+        ElseIf a = 1 Then
+            Try
+                FileSystem.Kill((MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\DATA CONTROL.txt"))
+            Catch ex As Exception
+            End Try
+        End If
+    End Sub
 
     Private Sub ListView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView1.MouseDoubleClick
         ItemStart(ListView1.FocusedItem.Text, 0)
@@ -310,5 +332,93 @@ Public Class Form1
 
     Private Sub ListBox2_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListBox2.MouseDoubleClick
         ItemStart(ListBox2.SelectedItem.ToString, 0)
+    End Sub
+
+    Private Sub ReloadF()
+        ListBox1.Items.Clear()
+        ListBox2.Items.Clear()
+        ListView1.Items.Clear()
+        ListView2.Items.Clear()
+        imageList1.Images.Clear()
+        'imageList2.Images.Clear()
+
+        '----------------------------------------------------------------------------------------------------
+        'kategori reload (listbox1)
+
+        Try
+            Dim Kisimleri = My.Computer.FileSystem.GetDirectories(MainPath + "\Categories\")
+            Dim Ksayisi = My.Computer.FileSystem.GetDirectories(MainPath + "\Categories\").Count
+            For Each isim As String In Kisimleri
+                Dim result As String = Path.GetFileName(isim)
+                ListBox1.Items.Add(result)
+            Next
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        ReloadF()
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim item
+        Dim type As Integer
+        Dim err As String
+
+
+        Try
+            If ListBox1.SelectedIndex > 0 Then
+                item = ListBox1.SelectedItem.ToString
+                type = 1
+            End If
+        Catch ex As Exception
+        End Try
+
+        Try
+            If ListView1.FocusedItem.Index > 0 Then
+                item = ListView1.FocusedItem.Text
+                type = 0
+            End If
+        Catch ex As Exception
+        End Try
+
+        Try
+            If ListView2.FocusedItem.Index > 0 Then
+                item = ListView2.FocusedItem.Text
+                type = 0
+            End If
+        Catch ex As Exception
+        End Try
+
+        Try
+            If ListBox2.SelectedIndex > 0 Then
+                item = ListBox2.SelectedItem.ToString
+                type = 2
+                err = InputBox("Is your choice a file(d) or a folder(k)?")
+            End If
+        Catch ex As Exception
+        End Try
+
+
+
+
+        '-----
+
+        Try
+            If type = 1 Then
+                Directory.Delete(MainPath + "\Categories\" + item)
+            ElseIf type = 0 Then
+                FileSystem.Kill(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + item)
+            ElseIf type = 2 Then
+                If err = "k" Then
+                    Directory.Delete(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + item)
+                Else
+                    FileSystem.Kill(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + item)
+                End If
+                'klasör ve kategorileri silme: .. ile birlikte içindekileri de sil
+            End If
+        Catch ex As Exception
+        End Try
+
     End Sub
 End Class

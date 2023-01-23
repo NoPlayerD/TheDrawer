@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
@@ -140,12 +140,14 @@ Partial Class Form1
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 25)
         Me.Button4.TabIndex = 6
-        Me.Button4.Text = "Button4"
+        Me.Button4.Text = "Delete"
         Me.Button4.UseVisualStyleBackColor = True
         '
         'Button5
         '
         Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button5.BackgroundImage = Global.theDrawer.My.Resources.Resources.reset_32
+        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button5.Location = New System.Drawing.Point(621, 386)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(25, 25)
