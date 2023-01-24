@@ -166,13 +166,9 @@ Public Class Form1
                     imageList1.Images.Clear()
                     ListView1.Items.Clear()
                     ListView1.BeginUpdate()
-                    If fsayisi = 1 Then
-                        fcontrol(0)
-                    ElseIf fsayisi >= 3 Then
-                        fcontrol(1)
-                    ElseIf fsayisi = 0 Then
-                        fcontrol(1)
-                    End If
+
+                    fcontrol(0)
+
                     For Each fi As IO.FileInfo In di.GetFiles("*")
 
                         Dim icons As Icon = SystemIcons.WinLogo
@@ -249,13 +245,9 @@ Public Class Form1
                     imageList1.Images.Clear()
                     ListView1.Items.Clear()
                     ListView1.BeginUpdate()
-                    If fsayisi = 1 Then
-                        fcontrol(0)
-                    ElseIf fsayisi >= 3 Then
-                        fcontrol(1)
-                    ElseIf fsayisi = 0 Then
-                        fcontrol(1)
-                    End If
+
+                    fcontrol(0)
+
                     For Each fi As IO.FileInfo In di.GetFiles("*")
 
                         Dim icons As Icon = SystemIcons.WinLogo
@@ -362,11 +354,43 @@ Public Class Form1
 
         If a = 0 Then
             Try
-                file = My.Computer.FileSystem.OpenTextFileWriter(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\DATA CONTROL.txt", True)
-                file.WriteLine("This file appears if there is 1 file in this category; if the number of files exceeds 1, it disappears.")
-                file.Close()
+                Dim sayi As Integer = My.Computer.FileSystem.GetFiles(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\").Count
+                Dim fils = My.Computer.FileSystem.GetFiles(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\")
+                Dim name As String
+                For Each nm As String In fils
+                    name = Path.GetFileName(nm)
+                Next
+
+                If sayi = 1 Then
+                    If name = ("DATA CONTROL.txt") Then
+                        fcontrol(1)
+                    Else
+                        file = My.Computer.FileSystem.OpenTextFileWriter(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\DATA CONTROL.txt", True)
+                        file.WriteLine("This file appears if there is 1 file in this category; if the number of files exceeds 1, it disappears.")
+                        file.Close()
+                        Debug.WriteLine("2")
+                    End If
+                End If
+                '--------------------
+                If sayi > 1 Then
+                    Dim yup As Boolean = False
+                    For Each dosya As String In fils
+                        Dim sn As String = Path.GetFileName(dosya)
+
+                        If sn = "DATA CONTROL.txt" Then
+                            yup = True
+                        End If
+                    Next
+                    If yup = True Then
+                        fcontrol(1)
+                    End If
+
+                End If
+
+
             Catch ex As Exception
             End Try
+            '----------------------------------------
         ElseIf a = 1 Then
             Try
                 FileSystem.Kill((MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\DATA CONTROL.txt"))
