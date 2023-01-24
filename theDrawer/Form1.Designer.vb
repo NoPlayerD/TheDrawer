@@ -37,9 +37,10 @@ Partial Class Form1
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.EkleToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.DosyaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.KlasörToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.KlasorToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.OluşturToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.KlasörToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CategorieToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenLocationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CategorieLocToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataLocToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -54,7 +55,6 @@ Partial Class Form1
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.CategorieToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -167,7 +167,7 @@ Partial Class Form1
         '
         'EkleToolStripMenuItem1
         '
-        Me.EkleToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DosyaToolStripMenuItem1, Me.KlasörToolStripMenuItem2})
+        Me.EkleToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DosyaToolStripMenuItem1, Me.KlasorToolStripMenuItem2})
         Me.EkleToolStripMenuItem1.Name = "EkleToolStripMenuItem1"
         Me.EkleToolStripMenuItem1.Size = New System.Drawing.Size(41, 20)
         Me.EkleToolStripMenuItem1.Text = "Add"
@@ -175,14 +175,14 @@ Partial Class Form1
         'DosyaToolStripMenuItem1
         '
         Me.DosyaToolStripMenuItem1.Name = "DosyaToolStripMenuItem1"
-        Me.DosyaToolStripMenuItem1.Size = New System.Drawing.Size(107, 22)
+        Me.DosyaToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.DosyaToolStripMenuItem1.Text = "File"
         '
-        'KlasörToolStripMenuItem2
+        'KlasorToolStripMenuItem2
         '
-        Me.KlasörToolStripMenuItem2.Name = "KlasörToolStripMenuItem2"
-        Me.KlasörToolStripMenuItem2.Size = New System.Drawing.Size(107, 22)
-        Me.KlasörToolStripMenuItem2.Text = "Folder"
+        Me.KlasorToolStripMenuItem2.Name = "KlasorToolStripMenuItem2"
+        Me.KlasorToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
+        Me.KlasorToolStripMenuItem2.Text = "Folder"
         '
         'OluşturToolStripMenuItem1
         '
@@ -194,8 +194,14 @@ Partial Class Form1
         'KlasörToolStripMenuItem3
         '
         Me.KlasörToolStripMenuItem3.Name = "KlasörToolStripMenuItem3"
-        Me.KlasörToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
+        Me.KlasörToolStripMenuItem3.Size = New System.Drawing.Size(122, 22)
         Me.KlasörToolStripMenuItem3.Text = "Folder"
+        '
+        'CategorieToolStripMenuItem
+        '
+        Me.CategorieToolStripMenuItem.Name = "CategorieToolStripMenuItem"
+        Me.CategorieToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.CategorieToolStripMenuItem.Text = "Category"
         '
         'OpenLocationToolStripMenuItem
         '
@@ -213,7 +219,7 @@ Partial Class Form1
         'DataLocToolStripMenuItem
         '
         Me.DataLocToolStripMenuItem.Name = "DataLocToolStripMenuItem"
-        Me.DataLocToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.DataLocToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.DataLocToolStripMenuItem.Text = "Data Loc."
         '
         'EkleToolStripMenuItem
@@ -294,12 +300,6 @@ Partial Class Form1
         '
         Me.Timer1.Interval = 500
         '
-        'CategorieToolStripMenuItem
-        '
-        Me.CategorieToolStripMenuItem.Name = "CategorieToolStripMenuItem"
-        Me.CategorieToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.CategorieToolStripMenuItem.Text = "Category"
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -354,7 +354,7 @@ Partial Class Form1
     Friend WithEvents Button6 As Button
     Friend WithEvents EkleToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents DosyaToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents KlasörToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents KlasorToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents OluşturToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents KlasörToolStripMenuItem3 As ToolStripMenuItem
     Friend WithEvents OpenLocationToolStripMenuItem As ToolStripMenuItem

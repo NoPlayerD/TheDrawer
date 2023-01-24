@@ -347,6 +347,16 @@ Public Class Form1
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         '0,5 sn / 1
         RELOADS(1)
+
+        If Not ListBox1.SelectedIndex >= 0 Then
+            CategorieLocToolStripMenuItem.Enabled = False
+            DosyaToolStripMenuItem1.Enabled = False
+            KlasorToolStripMenuItem2.Enabled = False
+        Else
+            CategorieLocToolStripMenuItem.Enabled = True
+            DosyaToolStripMenuItem1.Enabled = True
+            KlasorToolStripMenuItem2.Enabled = True
+        End If
     End Sub
 
     Private Sub fcontrol(a As Integer)
@@ -552,5 +562,61 @@ Public Class Form1
         RELOADS(2)
     End Sub
 
+    Private Sub DosyaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles DosyaToolStripMenuItem1.Click
+        'Dosya ekleme
+        Try
+            Dim d As New OpenFileDialog
+            Dim file As String
+            Dim nm As String
+
+            d.ShowDialog()
+            file = d.FileName
+            nm = d.SafeFileName
+
+            My.Computer.FileSystem.MoveFile(file, MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + nm)
+        Catch ex As Exception
+        End Try
+
+    End Sub
+
+    Private Sub KlasorToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles KlasorToolStripMenuItem2.Click
+        'Klasör ekleme
+        Try
+            Dim d As New FolderBrowserDialog
+            Dim folder As String
+            Dim nm As String
+
+            d.ShowDialog()
+            folder = d.SelectedPath
+            nm = folder.Split("\").Last
+            My.Computer.FileSystem.MoveDirectory(folder, MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + nm)
+        Catch ex As Exception
+        End Try
+
+    End Sub
+
+    Private Sub ListView1_GotFocus(sender As Object, e As EventArgs) Handles ListView1.GotFocus
+        Try
+            ListBox2.SelectedIndex = -1
+            ListView2.FocusedItem.Checked = False
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub ListView2_GotFocus(sender As Object, e As EventArgs) Handles ListView2.GotFocus
+        Try
+            ListView1.FocusedItem.Checked = False
+            ListBox2.SelectedIndex = -1
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub ListBox2_GotFocus(sender As Object, e As EventArgs) Handles ListBox2.GotFocus
+        Try
+            ListView1.FocusedItem.Checked = False
+            ListView2.FocusedItem.Checked = False
+        Catch ex As Exception
+        End Try
+    End Sub
 
 End Class
