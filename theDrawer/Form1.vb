@@ -321,7 +321,7 @@ Public Class Form1
         Application.Exit()
     End Sub
 
-    Private Sub KlasörToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles KlasörToolStripMenuItem3.Click
+    Private Sub KlasörToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles KlasorToolStripMenuItem3.Click
         'Create Folder
 
         Dim name As String
@@ -352,10 +352,18 @@ Public Class Form1
             CategorieLocToolStripMenuItem.Enabled = False
             DosyaToolStripMenuItem1.Enabled = False
             KlasorToolStripMenuItem2.Enabled = False
+            KlasorToolStripMenuItem3.Enabled = False
         Else
             CategorieLocToolStripMenuItem.Enabled = True
             DosyaToolStripMenuItem1.Enabled = True
             KlasorToolStripMenuItem2.Enabled = True
+            KlasorToolStripMenuItem3.Enabled = True
+        End If
+
+        If Me.WindowState = FormWindowState.Normal Then
+            Button3.Enabled = False
+        Else
+            Button3.Enabled = True
         End If
     End Sub
 
@@ -480,20 +488,14 @@ Public Class Form1
         Dim type As Integer
         Dim err As String
         Dim sure As String
+        Dim hta As Boolean = False
 
-        Try
-            If ListBox1.SelectedIndex >= 0 Then
-                item = ListBox1.SelectedItem.ToString
-                type = 1
-                sure = InputBox("Are you sure about delete the selected category? (y/n):")
-            End If
-        Catch ex As Exception
-        End Try
 
         Try
             If ListView1.FocusedItem.Index >= 0 Then
                 item = ListView1.FocusedItem.Text
                 type = 0
+                hta = True
             End If
         Catch ex As Exception
         End Try
@@ -502,6 +504,7 @@ Public Class Form1
             If ListView2.FocusedItem.Index >= 0 Then
                 item = ListView2.FocusedItem.Text
                 type = 0
+                hta = True
             End If
         Catch ex As Exception
         End Try
@@ -511,9 +514,21 @@ Public Class Form1
                 item = ListBox2.SelectedItem.ToString
                 type = 2
                 err = InputBox("Is your choice a file(d) or a folder(k)?")
+                hta = True
             End If
         Catch ex As Exception
         End Try
+
+        If Not hta = True Then
+            Try
+                If ListBox1.SelectedIndex >= 0 Then
+                    item = ListBox1.SelectedItem.ToString
+                    type = 1
+                    sure = InputBox("Are you sure about delete the selected category? (y/n):")
+                End If
+            Catch ex As Exception
+            End Try
+        End If
 
 
         '----------
@@ -536,11 +551,7 @@ Public Class Form1
                 'klasör ve kategorileri silme: .. ile birlikte içindekileri de sil
             End If
         Catch ex As Exception
-            If sure = "y" Then
-                If Directory.Exists(MainPath + "\Categories\" + item) Then
-                    MsgBox("Please manually delete your files/folders in the category..")
-                End If
-            End If
+            MsgBox("Please manually delete your files, folders or categories..")
         End Try
 
     End Sub
@@ -619,4 +630,18 @@ Public Class Form1
         End Try
     End Sub
 
+    Private Sub ListView1_KeyDown(sender As Object, e As KeyEventArgs) Handles ListView1.KeyDown
+        'dosya başlatma - enter (listview1)
+        ItemStart(ListView1.FocusedItem.Text, 0)
+    End Sub
+
+    Private Sub ListView2_KeyDown(sender As Object, e As KeyEventArgs) Handles ListView2.KeyDown
+        'Klasör başlatma - enter (listview2)
+        ItemStart(ListView2.FocusedItem.Text, 1)
+    End Sub
+
+    Private Sub ListBox2_KeyDown(sender As Object, e As KeyEventArgs) Handles ListBox2.KeyDown
+        'Item başlatma, klasör/dosya - enter (listbox2)
+        ItemStart(ListBox2.SelectedItem.ToString, 0)
+    End Sub
 End Class

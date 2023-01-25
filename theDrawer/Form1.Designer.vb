@@ -39,7 +39,7 @@ Partial Class Form1
         Me.DosyaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.KlasorToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.OluşturToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.KlasörToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.KlasorToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CategorieToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenLocationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CategorieLocToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -175,32 +175,32 @@ Partial Class Form1
         'DosyaToolStripMenuItem1
         '
         Me.DosyaToolStripMenuItem1.Name = "DosyaToolStripMenuItem1"
-        Me.DosyaToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.DosyaToolStripMenuItem1.Size = New System.Drawing.Size(107, 22)
         Me.DosyaToolStripMenuItem1.Text = "File"
         '
         'KlasorToolStripMenuItem2
         '
         Me.KlasorToolStripMenuItem2.Name = "KlasorToolStripMenuItem2"
-        Me.KlasorToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
+        Me.KlasorToolStripMenuItem2.Size = New System.Drawing.Size(107, 22)
         Me.KlasorToolStripMenuItem2.Text = "Folder"
         '
         'OluşturToolStripMenuItem1
         '
-        Me.OluşturToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KlasörToolStripMenuItem3, Me.CategorieToolStripMenuItem})
+        Me.OluşturToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KlasorToolStripMenuItem3, Me.CategorieToolStripMenuItem})
         Me.OluşturToolStripMenuItem1.Name = "OluşturToolStripMenuItem1"
         Me.OluşturToolStripMenuItem1.Size = New System.Drawing.Size(53, 20)
         Me.OluşturToolStripMenuItem1.Text = "Create"
         '
-        'KlasörToolStripMenuItem3
+        'KlasorToolStripMenuItem3
         '
-        Me.KlasörToolStripMenuItem3.Name = "KlasörToolStripMenuItem3"
-        Me.KlasörToolStripMenuItem3.Size = New System.Drawing.Size(122, 22)
-        Me.KlasörToolStripMenuItem3.Text = "Folder"
+        Me.KlasorToolStripMenuItem3.Name = "KlasorToolStripMenuItem3"
+        Me.KlasorToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
+        Me.KlasorToolStripMenuItem3.Text = "Folder"
         '
         'CategorieToolStripMenuItem
         '
         Me.CategorieToolStripMenuItem.Name = "CategorieToolStripMenuItem"
-        Me.CategorieToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.CategorieToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.CategorieToolStripMenuItem.Text = "Category"
         '
         'OpenLocationToolStripMenuItem
@@ -213,13 +213,13 @@ Partial Class Form1
         'CategorieLocToolStripMenuItem
         '
         Me.CategorieLocToolStripMenuItem.Name = "CategorieLocToolStripMenuItem"
-        Me.CategorieLocToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CategorieLocToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.CategorieLocToolStripMenuItem.Text = "Category Loc."
         '
         'DataLocToolStripMenuItem
         '
         Me.DataLocToolStripMenuItem.Name = "DataLocToolStripMenuItem"
-        Me.DataLocToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DataLocToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.DataLocToolStripMenuItem.Text = "Data Loc."
         '
         'EkleToolStripMenuItem
@@ -356,7 +356,7 @@ Partial Class Form1
     Friend WithEvents DosyaToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents KlasorToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents OluşturToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents KlasörToolStripMenuItem3 As ToolStripMenuItem
+    Friend WithEvents KlasorToolStripMenuItem3 As ToolStripMenuItem
     Friend WithEvents OpenLocationToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CategorieLocToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DataLocToolStripMenuItem As ToolStripMenuItem
