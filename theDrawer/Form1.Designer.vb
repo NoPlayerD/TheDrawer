@@ -55,6 +55,7 @@ Partial Class Form1
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -194,13 +195,13 @@ Partial Class Form1
         'KlasorToolStripMenuItem3
         '
         Me.KlasorToolStripMenuItem3.Name = "KlasorToolStripMenuItem3"
-        Me.KlasorToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
+        Me.KlasorToolStripMenuItem3.Size = New System.Drawing.Size(122, 22)
         Me.KlasorToolStripMenuItem3.Text = "Folder"
         '
         'CategorieToolStripMenuItem
         '
         Me.CategorieToolStripMenuItem.Name = "CategorieToolStripMenuItem"
-        Me.CategorieToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CategorieToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.CategorieToolStripMenuItem.Text = "Category"
         '
         'OpenLocationToolStripMenuItem
@@ -300,6 +301,9 @@ Partial Class Form1
         '
         Me.Timer1.Interval = 500
         '
+        'ToolTip1
+        '
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -364,4 +368,5 @@ Partial Class Form1
     Friend WithEvents imageList1 As ImageList
     Friend WithEvents imageList2 As ImageList
     Friend WithEvents CategorieToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

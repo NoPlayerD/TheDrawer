@@ -246,8 +246,6 @@ Public Class Form1
                     ListView1.Items.Clear()
                     ListView1.BeginUpdate()
 
-                    fcontrol(0)
-
                     For Each fi As IO.FileInfo In di.GetFiles("*")
 
                         Dim icons As Icon = SystemIcons.WinLogo
@@ -314,6 +312,8 @@ Public Class Form1
         Firstload.fl()
 
         Timer1.Start()
+        KeyPreview = True
+        ToolTip1.SetToolTip(Button5, "F5")
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
@@ -643,5 +643,12 @@ Public Class Form1
     Private Sub ListBox2_KeyDown(sender As Object, e As KeyEventArgs) Handles ListBox2.KeyDown
         'Item başlatma, klasör/dosya - enter (listbox2)
         ItemStart(ListBox2.SelectedItem.ToString, 0)
+    End Sub
+
+    Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        'Manuel reload - key code
+        If e.KeyCode = Keys.F5 Then
+            RELOADS(3)
+        End If
     End Sub
 End Class
