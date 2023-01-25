@@ -236,34 +236,30 @@ Public Class Form1
                 For Each maddeler In My.Computer.FileSystem.GetDirectories(CPath)
                     Dim sonuc As String = maddeler.Split("\").Last
                     ListBox2.Items.Add(sonuc)
+                Next
+                '----------
+                Dim di As New IO.DirectoryInfo(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\")
+                imageList1.Images.Clear()
+                ListView1.Items.Clear()
+                ListView1.BeginUpdate()
 
-                    '-----
-                    Dim f1 As Integer = My.Computer.FileSystem.GetFiles(CPath).Count
-                    Dim f2 As Integer = My.Computer.FileSystem.GetDirectories(CPath).Count
-                    Dim fsayisi As Integer = f1 + f2
-                    Dim di As New IO.DirectoryInfo(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\")
-                    imageList1.Images.Clear()
-                    ListView1.Items.Clear()
-                    ListView1.BeginUpdate()
+                For Each fi As IO.FileInfo In di.GetFiles("*")
 
-                    For Each fi As IO.FileInfo In di.GetFiles("*")
+                    Dim icons As Icon = SystemIcons.WinLogo
+                    Dim li As New ListViewItem(fi.Name, 1)
 
-                        Dim icons As Icon = SystemIcons.WinLogo
-                        Dim li As New ListViewItem(fi.Name, 1)
+                    If Not (imageList1.Images.ContainsKey(fi.FullName)) Then
+                        icons = System.Drawing.Icon.ExtractAssociatedIcon(fi.FullName)
+                        imageList1.Images.Add(fi.FullName, icons)
+                    End If
 
-                        If Not (imageList1.Images.ContainsKey(fi.FullName)) Then
-                            icons = System.Drawing.Icon.ExtractAssociatedIcon(fi.FullName)
-                            imageList1.Images.Add(fi.FullName, icons)
-                        End If
-
-                        icons = Icon.ExtractAssociatedIcon(fi.FullName)
-                        imageList1.Images.Add(icons)
-                        ListView1.Items.Add(fi.Name, fi.FullName)
-                        ListView1.EndUpdate()
-                    Next
+                    icons = Icon.ExtractAssociatedIcon(fi.FullName)
+                    imageList1.Images.Add(icons)
+                    ListView1.Items.Add(fi.Name, fi.FullName)
+                    ListView1.EndUpdate()
                 Next
 
-                '-----
+                '----------
 
                 Dim dsayisi As Integer = My.Computer.FileSystem.GetDirectories(CPath + "\").Count
                 Dim odsayisi As Integer = ListView2.Items.Count
