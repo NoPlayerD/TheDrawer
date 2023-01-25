@@ -717,4 +717,8 @@ Public Class Form1
         End Try
         If test = 3 Then Timer2.Stop()
     End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        MsgBox("Created By. 'NoPlayer.D'" + vbNewLine + "Version: " + Application.ProductVersion + vbNewLine + vbNewLine + vbNewLine + "Thank you for using my app..")
+    End Sub
 End Class

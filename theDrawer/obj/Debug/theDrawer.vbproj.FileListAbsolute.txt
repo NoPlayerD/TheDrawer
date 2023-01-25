@@ -21,3 +21,7 @@ C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.vbproj.Generat
 C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.exe
 C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.xml
 C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.pdb
+C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\bin\Debug\theDrawer.exe.manifest
+C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\bin\Debug\theDrawer.application
+C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.exe.manifest
+C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.application
