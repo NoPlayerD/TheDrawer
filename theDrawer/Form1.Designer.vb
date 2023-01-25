@@ -61,7 +61,6 @@ Partial Class Form1
         '
         'Button1
         '
-        Me.Button1.Enabled = False
         Me.Button1.Location = New System.Drawing.Point(12, 12)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
@@ -289,14 +288,16 @@ Partial Class Form1
         '
         'Button6
         '
+        Me.Button6.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
+        Me.Button6.ForeColor = System.Drawing.Color.White
         Me.Button6.Location = New System.Drawing.Point(155, 0)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(75, 35)
         Me.Button6.TabIndex = 9
         Me.Button6.Text = "EXIT"
         Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.Button6.UseVisualStyleBackColor = False
         '
         'Timer1
         '

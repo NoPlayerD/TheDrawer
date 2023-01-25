@@ -310,6 +310,8 @@ Public Class Form1
         Timer1.Start()
         KeyPreview = True
         ToolTip1.SetToolTip(Button5, "F5")
+
+        sett()
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
@@ -361,6 +363,12 @@ Public Class Form1
         Else
             Button3.Enabled = True
         End If
+
+        If My.Settings.rel = True Then
+            My.Settings.rel = False
+            sett()
+        End If
+
     End Sub
 
     Private Sub fcontrol(a As Integer)
@@ -646,5 +654,42 @@ Public Class Form1
         If e.KeyCode = Keys.F5 Then
             RELOADS(3)
         End If
+    End Sub
+    Private Sub sett()
+        'customize app
+
+        If My.Settings.style = vbNullString Then
+            My.Settings.style = "dark"
+        End If
+        If My.Settings.way = vbNullString Then
+            My.Settings.way = "default"
+        End If
+
+        '--------------------
+
+        If My.Settings.style = "dark" Then
+            Me.BackColor = System.Drawing.Color.FromArgb(30, 30, 30)
+            ListBox1.BackColor = System.Drawing.Color.FromArgb(30, 30, 30)
+            ListView1.BackColor = System.Drawing.Color.FromArgb(30, 30, 30)
+            ListView2.BackColor = System.Drawing.Color.FromArgb(30, 30, 30)
+            ListBox2.BackColor = System.Drawing.Color.FromArgb(30, 30, 30)
+
+            ListBox1.ForeColor = Color.White
+            ListView1.ForeColor = Color.White
+            ListView2.ForeColor = Color.White
+            ListBox2.ForeColor = Color.White
+        Else
+            Me.BackColor = System.Drawing.Color.FromArgb(224, 224, 224)
+            ListBox1.BackColor = System.Drawing.Color.FromArgb(224, 224, 224)
+            ListView1.BackColor = System.Drawing.Color.FromArgb(224, 224, 224)
+            ListView2.BackColor = System.Drawing.Color.FromArgb(224, 224, 224)
+            ListBox2.BackColor = System.Drawing.Color.FromArgb(224, 224, 224)
+
+            ListBox1.ForeColor = Color.Black
+            ListView1.ForeColor = Color.Black
+            ListView2.ForeColor = Color.Black
+            ListBox2.ForeColor = Color.Black
+        End If
+
     End Sub
 End Class
