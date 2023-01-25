@@ -68,10 +68,10 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property ctgr() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property ctgr() As Integer
             Get
-                Return CType(Me("ctgr"),String)
+                Return CType(Me("ctgr"),Integer)
             End Get
             Set
                 Me("ctgr") = value

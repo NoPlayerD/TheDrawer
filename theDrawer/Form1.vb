@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Threading
 Imports theDrawer.Firstload
 Public Class Form1
 
@@ -86,11 +87,11 @@ Public Class Form1
             ListBox2.Location = New Point(620, 48)
             ListBox2.Size = New Size(137, 329)
 
-            ListView2.Location = New Point(381, 48)
-            ListView2.Size = New Size(220, 330)
+            ListView2.Location = New Point(386, 48)
+            ListView2.Size = New Size(228, 330)
 
             ListView1.Location = New Point(155, 48)
-            ListView1.Size = New Size(220, 330)
+            ListView1.Size = New Size(228, 330)
 
             'GroupBox1.Location = New Point(12, 43)
             'GroupBox1.Size = New Size(137, 337)
@@ -312,6 +313,16 @@ Public Class Form1
         ToolTip1.SetToolTip(Button5, "F5")
 
         sett()
+
+        If My.Settings.way = "2" Then
+            Button2.PerformClick()
+        ElseIf My.Settings.way = "3" Then
+            Button2.PerformClick()
+            Button3.PerformClick()
+        End If
+
+        Timer2.Start()
+
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
@@ -662,7 +673,7 @@ Public Class Form1
             My.Settings.style = "dark"
         End If
         If My.Settings.way = vbNullString Then
-            My.Settings.way = "default"
+            My.Settings.way = "1"
         End If
 
         '--------------------
@@ -691,5 +702,19 @@ Public Class Form1
             ListBox2.ForeColor = Color.Black
         End If
 
+    End Sub
+
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        'default kategoriyi seçme
+        Dim test As Integer = 0
+
+        Try
+            If Not My.Settings.ctgr = 0 Then
+                Dim a As Integer = My.Settings.ctgr
+                ListBox1.SelectedIndex = a - 1
+            End If
+        Catch ex As Exception
+        End Try
+        If test = 3 Then Timer2.Stop()
     End Sub
 End Class

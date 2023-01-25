@@ -5,8 +5,8 @@
     <Setting Name="style" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="ctgr" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="ctgr" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="way" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

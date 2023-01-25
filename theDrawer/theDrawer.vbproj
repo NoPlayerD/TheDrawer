@@ -132,6 +132,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icons8_clear_symbol_32.png" />
     <Content Include="rubiks.ico" />
   </ItemGroup>
   <ItemGroup>

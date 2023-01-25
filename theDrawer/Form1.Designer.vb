@@ -56,6 +56,7 @@ Partial Class Form1
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -86,14 +87,14 @@ Partial Class Form1
         Me.ListView1.LargeImageList = Me.imageList1
         Me.ListView1.Location = New System.Drawing.Point(155, 48)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(220, 330)
+        Me.ListView1.Size = New System.Drawing.Size(228, 330)
         Me.ListView1.TabIndex = 3
         Me.ListView1.UseCompatibleStateImageBehavior = False
         '
         'imageList1
         '
         Me.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
-        Me.imageList1.ImageSize = New System.Drawing.Size(35, 35)
+        Me.imageList1.ImageSize = New System.Drawing.Size(30, 30)
         Me.imageList1.TransparentColor = System.Drawing.Color.Transparent
         '
         'ListView2
@@ -101,9 +102,9 @@ Partial Class Form1
         Me.ListView2.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.ListView2.ForeColor = System.Drawing.Color.White
         Me.ListView2.LargeImageList = Me.imageList2
-        Me.ListView2.Location = New System.Drawing.Point(381, 48)
+        Me.ListView2.Location = New System.Drawing.Point(386, 48)
         Me.ListView2.Name = "ListView2"
-        Me.ListView2.Size = New System.Drawing.Size(220, 330)
+        Me.ListView2.Size = New System.Drawing.Size(228, 330)
         Me.ListView2.TabIndex = 4
         Me.ListView2.UseCompatibleStateImageBehavior = False
         '
@@ -303,6 +304,9 @@ Partial Class Form1
         '
         Me.Timer1.Interval = 500
         '
+        'Timer2
+        '
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -369,4 +373,5 @@ Partial Class Form1
     Friend WithEvents imageList2 As ImageList
     Friend WithEvents CategorieToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents Timer2 As Timer
 End Class
