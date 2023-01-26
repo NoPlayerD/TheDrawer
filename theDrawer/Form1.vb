@@ -5,6 +5,7 @@ Public Class Form1
 
     Dim MainPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\theDrawer DATA"
     Dim ct As Boolean 'gizleme butonu - ctrl
+    Dim countdown As Integer = 0
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         'Tam ekran
@@ -706,7 +707,6 @@ Public Class Form1
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
         'default kategoriyi seçme
-        Dim test As Integer = 0
 
         Try
             If Not My.Settings.ctgr = 0 Then
@@ -715,7 +715,9 @@ Public Class Form1
             End If
         Catch ex As Exception
         End Try
-        If test = 3 Then Timer2.Stop()
+
+        countdown = countdown + 1
+        If countdown = 3 Then Timer2.Stop()
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click

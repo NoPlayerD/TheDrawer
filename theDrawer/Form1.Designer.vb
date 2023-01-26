@@ -43,6 +43,7 @@ Partial Class Form1
         Me.OpenLocationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CategorieLocToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataLocToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EkleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.KlasörToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DosyaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -57,7 +58,6 @@ Partial Class Form1
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Button5 = New System.Windows.Forms.Button()
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -214,6 +214,12 @@ Partial Class Form1
         Me.DataLocToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.DataLocToolStripMenuItem.Text = "Data Loc."
         '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
+        Me.AboutToolStripMenuItem.Text = "About"
+        '
         'EkleToolStripMenuItem
         '
         Me.EkleToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KlasörToolStripMenuItem, Me.DosyaToolStripMenuItem})
@@ -296,6 +302,7 @@ Partial Class Form1
         '
         'Timer2
         '
+        Me.Timer2.Interval = 500
         '
         'Button5
         '
@@ -307,12 +314,6 @@ Partial Class Form1
         Me.Button5.Size = New System.Drawing.Size(25, 25)
         Me.Button5.TabIndex = 7
         Me.Button5.UseVisualStyleBackColor = True
-        '
-        'AboutToolStripMenuItem
-        '
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
-        Me.AboutToolStripMenuItem.Text = "About"
         '
         'Form1
         '
