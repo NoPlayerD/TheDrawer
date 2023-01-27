@@ -302,7 +302,7 @@ Partial Class Form1
         '
         'Timer2
         '
-        Me.Timer2.Interval = 500
+        Me.Timer2.Interval = 200
         '
         'Button5
         '
