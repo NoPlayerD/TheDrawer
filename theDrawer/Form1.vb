@@ -85,22 +85,22 @@ Public Class Form1
             ListBox1.Show()
             Button6.Hide()
 
-            ListBox2.Location = New Point(620, 48)
-            ListBox2.Size = New Size(137, 329)
+            ListBox2.Location = New Point(635, 48)
+            ListBox2.Size = New Size(137, 324)
 
-            ListView2.Location = New Point(386, 48)
-            ListView2.Size = New Size(228, 330)
+            ListView2.Location = New Point(395, 48)
+            ListView2.Size = New Size(237, 330)
 
             ListView1.Location = New Point(155, 48)
-            ListView1.Size = New Size(228, 330)
+            ListView1.Size = New Size(237, 330)
 
             'GroupBox1.Location = New Point(12, 43)
             'GroupBox1.Size = New Size(137, 337)
             ListBox1.Location = New Point(12, 48)
             ListBox1.Size = New Size(137, 329)
 
-            Button2.Location = New Point(667, 12)
-            Button4.Location = New Point(682, 386)
+            Button2.Location = New Point(682, 12)
+            Button4.Location = New Point(697, 386)
         End If
 
 
@@ -552,13 +552,25 @@ Public Class Form1
         Try
             If type = 1 Then
                 If sure = "y" Then
-                    FileSystem.Kill(MainPath + "\Categories\" + item + "\*.*")
-                    Directory.Delete(MainPath + "\Categories\" + item + "\*")
+                    Dim files As Integer = Directory.GetFiles(MainPath + "\Categories\" + item + "\").Count
+                    Dim folders As Integer = Directory.GetDirectories(MainPath + "\Categories\" + item + "\").Count
+                    If files > 0 Then
+                        FileSystem.Kill(MainPath + "\Categories\" + item + "\*.*")
+                    End If
+                    If folders > 0 Then
+                        For Each folder As String In Directory.GetDirectories(MainPath + "\Categories\" + item + "\")
+                            Directory.Delete(folder)
+                        Next
+                    End If
                     Directory.Delete(MainPath + "\Categories\" + item)
                 End If
+
+
             ElseIf type = 0 Then
                 FileSystem.Kill(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + item)
             ElseIf type = 2 Then
+
+
                 If err = "k" Then
                     Directory.Delete(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + item)
                 ElseIf err = "d" Then
@@ -570,6 +582,7 @@ Public Class Form1
             MsgBox("Please manually delete your files, folders or categories..")
         End Try
 
+        RELOADS(3)
     End Sub
 
     Private Sub CategorieToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CategorieToolStripMenuItem.Click
@@ -593,14 +606,14 @@ Public Class Form1
         'Dosya ekleme
         Try
             Dim d As New OpenFileDialog
-            Dim file As String
-            Dim nm As String
 
+            d.Multiselect = True
             d.ShowDialog()
-            file = d.FileName
-            nm = d.SafeFileName
 
-            My.Computer.FileSystem.MoveFile(file, MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + nm)
+            For Each file As String In d.FileNames
+                Dim name = file.Split("\").Last
+                My.Computer.FileSystem.MoveFile(file, MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + name)
+            Next
         Catch ex As Exception
         End Try
 
@@ -616,6 +629,7 @@ Public Class Form1
             d.ShowDialog()
             folder = d.SelectedPath
             nm = folder.Split("\").Last
+
             My.Computer.FileSystem.MoveDirectory(folder, MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + nm)
         Catch ex As Exception
         End Try
@@ -648,17 +662,23 @@ Public Class Form1
 
     Private Sub ListView1_KeyDown(sender As Object, e As KeyEventArgs) Handles ListView1.KeyDown
         'dosya başlatma - enter (listview1)
-        ItemStart(ListView1.FocusedItem.Text, 0)
+        If e.KeyCode = Keys.Enter Then
+            ItemStart(ListView1.FocusedItem.Text, 0)
+        End If
     End Sub
 
     Private Sub ListView2_KeyDown(sender As Object, e As KeyEventArgs) Handles ListView2.KeyDown
         'Klasör başlatma - enter (listview2)
-        ItemStart(ListView2.FocusedItem.Text, 1)
+        If e.KeyCode = Keys.Enter Then
+            ItemStart(ListView2.FocusedItem.Text, 1)
+        End If
     End Sub
 
     Private Sub ListBox2_KeyDown(sender As Object, e As KeyEventArgs) Handles ListBox2.KeyDown
         'Item başlatma, klasör/dosya - enter (listbox2)
-        ItemStart(ListBox2.SelectedItem.ToString, 0)
+        If e.KeyCode = Keys.Enter Then
+            ItemStart(ListBox2.SelectedItem.ToString, 0)
+        End If
     End Sub
 
     Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
@@ -722,5 +742,22 @@ Public Class Form1
 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
         MsgBox("Created By. 'NoPlayer.D'" + vbNewLine + "Version: " + Application.ProductVersion + vbNewLine + vbNewLine + vbNewLine + "Thank you for using my app..")
+    End Sub
+
+    Private Sub CategoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CategoryToolStripMenuItem.Click
+        'Kategori ekleme
+        Try
+            Dim d As New FolderBrowserDialog
+            Dim folder As String
+            Dim nm As String
+
+
+            d.ShowDialog()
+            folder = d.SelectedPath
+            nm = folder.Split("\").Last
+
+            My.Computer.FileSystem.MoveDirectory(folder, MainPath + "\Categories\" + nm)
+        Catch ex As Exception
+        End Try
     End Sub
 End Class
