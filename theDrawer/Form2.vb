@@ -22,12 +22,14 @@ Public Class Form2
             GroupBox1.ForeColor = Color.White
             GroupBox2.ForeColor = Color.White
             GroupBox3.ForeColor = Color.White
+            GroupBox4.ForeColor = Color.White
         Else
             RadioButton2.Checked = True
             Me.BackColor = Color.FromArgb(224, 224, 224)
             GroupBox1.ForeColor = Color.Black
             GroupBox2.ForeColor = Color.Black
             GroupBox3.ForeColor = Color.Black
+            GroupBox4.ForeColor = Color.Black
         End If
 
         '--------------------
@@ -55,6 +57,8 @@ Public Class Form2
 
         category(1)
 
+        Label2.Text = (TrackBar1.Value * 28) + 28
+        Label4.Text = (TrackBar2.Value * 28) + 28
     End Sub
 
     Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
@@ -71,6 +75,10 @@ Public Class Form2
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'başlangıç
+
+        TrackBar1.Value = (My.Settings.normal - 28) / 28
+        TrackBar2.Value = (My.Settings.fulls - 28) / 28
+
 
         Timer1.Start()
     End Sub
@@ -135,5 +143,15 @@ Public Class Form2
 
         My.Settings.ctgr = 0
         ComboBox1.SelectedIndex = -1
+    End Sub
+
+    Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs) Handles TrackBar1.Scroll
+        Label2.Text = (TrackBar1.Value * 28) + 28
+        My.Settings.normal = Label2.Text
+    End Sub
+
+    Private Sub TrackBar2_Scroll(sender As Object, e As EventArgs) Handles TrackBar2.Scroll
+        Label4.Text = (TrackBar2.Value * 28) + 28
+        My.Settings.fulls = Label4.Text
     End Sub
 End Class

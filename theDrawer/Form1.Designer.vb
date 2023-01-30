@@ -97,7 +97,7 @@ Partial Class Form1
         '
         'imageList1
         '
-        Me.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        Me.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit
         Me.imageList1.ImageSize = New System.Drawing.Size(28, 28)
         Me.imageList1.TransparentColor = System.Drawing.Color.Transparent
         '
@@ -118,7 +118,7 @@ Partial Class Form1
         '
         Me.imageList2.ImageStream = CType(resources.GetObject("imageList2.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.imageList2.TransparentColor = System.Drawing.Color.Transparent
-        Me.imageList2.Images.SetKeyName(0, "i.ico")
+        Me.imageList2.Images.SetKeyName(0, "folder.ico")
         '
         'ListBox2
         '

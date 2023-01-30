@@ -27,6 +27,7 @@ Public Class Form1
         Dim x As Integer = Me.Width
         Dim y As Integer = Me.Height
 
+        My.Settings.rel = True
 
         If Me.WindowState = FormWindowState.Maximized Then
             Dim y1 As Integer = y - 154
@@ -102,8 +103,6 @@ Public Class Form1
             Button2.Location = New Point(682, 12)
             Button4.Location = New Point(697, 386)
         End If
-
-
 
     End Sub
 
@@ -221,6 +220,37 @@ Public Class Form1
             Catch ex As Exception
             End Try
 
+        End If
+
+        '----------
+        'imagelists reload (imagelist 1/2)
+        Dim re As Boolean = False
+
+        If Not Me.WindowState = FormWindowState.Maximized Then
+            If Not imageList1.ImageSize = New Size(My.Settings.normal, My.Settings.normal) Then
+                imageList1.ImageSize = New Size(My.Settings.normal, My.Settings.normal)
+                re = True
+            End If
+            If Not imageList2.ImageSize = New Size(My.Settings.normal, My.Settings.normal) Then
+                imageList2.ImageSize = New Size(My.Settings.normal, My.Settings.normal)
+                re = True
+            End If
+
+        Else
+
+            If Not imageList1.ImageSize = New Size(My.Settings.fulls, My.Settings.fulls) Then
+                imageList1.ImageSize = New Size(My.Settings.fulls, My.Settings.fulls)
+                re = True
+            End If
+            If Not imageList2.ImageSize = New Size(My.Settings.fulls, My.Settings.fulls) Then
+                imageList2.ImageSize = New Size(My.Settings.fulls, My.Settings.fulls)
+                re = True
+            End If
+
+        End If
+
+        If re = True Then
+            RELOADS(3)
         End If
 
         '------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -379,6 +409,11 @@ Public Class Form1
         If My.Settings.rel = True Then
             My.Settings.rel = False
             sett()
+        End If
+
+        If My.Settings.rel = True Then
+            imageList2.Images.Clear()
+            imageList2.Images.Add(My.Resources.folder_64)
         End If
 
     End Sub
@@ -709,6 +744,9 @@ Public Class Form1
             ListView2.ForeColor = Color.Black
             ListBox2.ForeColor = Color.Black
         End If
+
+        imageList2.Images.Clear()
+        imageList2.Images.Add(My.Resources.folder_64)
 
     End Sub
 

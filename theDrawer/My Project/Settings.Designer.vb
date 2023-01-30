@@ -101,6 +101,30 @@ Namespace My
                 Me("rel") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("28")>  _
+        Public Property normal() As Integer
+            Get
+                Return CType(Me("normal"),Integer)
+            End Get
+            Set
+                Me("normal") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("28")>  _
+        Public Property fulls() As Integer
+            Get
+                Return CType(Me("fulls"),Integer)
+            End Get
+            Set
+                Me("fulls") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
