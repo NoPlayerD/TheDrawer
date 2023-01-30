@@ -84,6 +84,7 @@ Partial Class Form1
         '
         'ListView1
         '
+        Me.ListView1.AllowDrop = True
         Me.ListView1.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.ListView1.ForeColor = System.Drawing.Color.White
         Me.ListView1.LargeImageList = Me.imageList1
@@ -102,6 +103,7 @@ Partial Class Form1
         '
         'ListView2
         '
+        Me.ListView2.AllowDrop = True
         Me.ListView2.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.ListView2.ForeColor = System.Drawing.Color.White
         Me.ListView2.LargeImageList = Me.imageList2

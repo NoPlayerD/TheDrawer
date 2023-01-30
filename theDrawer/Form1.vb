@@ -519,17 +519,7 @@ Public Class Form1
         Try
             If ListView2.FocusedItem.Index >= 0 Then
                 item = ListView2.FocusedItem.Text
-                type = 0
-                hta = True
-            End If
-        Catch ex As Exception
-        End Try
-
-        Try
-            If ListBox2.SelectedIndex >= 0 Then
-                item = ListBox2.SelectedItem.ToString
-                type = 2
-                err = InputBox("Is your choice a file(d) or a folder(k)?")
+                type = 1
                 hta = True
             End If
         Catch ex As Exception
@@ -539,7 +529,7 @@ Public Class Form1
             Try
                 If ListBox1.SelectedIndex >= 0 Then
                     item = ListBox1.SelectedItem.ToString
-                    type = 1
+                    type = 2
                     sure = InputBox("Are you sure about delete the selected category? (y/n):")
                 End If
             Catch ex As Exception
@@ -550,33 +540,30 @@ Public Class Form1
         '----------
 
         Try
-            If type = 1 Then
+            If type = 2 Then
+                'kategori
                 If sure = "y" Then
                     Dim files As Integer = Directory.GetFiles(MainPath + "\Categories\" + item + "\").Count
                     Dim folders As Integer = Directory.GetDirectories(MainPath + "\Categories\" + item + "\").Count
+
                     If files > 0 Then
                         FileSystem.Kill(MainPath + "\Categories\" + item + "\*.*")
                     End If
+
                     If folders > 0 Then
                         For Each folder As String In Directory.GetDirectories(MainPath + "\Categories\" + item + "\")
                             Directory.Delete(folder)
                         Next
                     End If
+
                     Directory.Delete(MainPath + "\Categories\" + item)
                 End If
 
 
             ElseIf type = 0 Then
                 FileSystem.Kill(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + item)
-            ElseIf type = 2 Then
-
-
-                If err = "k" Then
-                    Directory.Delete(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + item)
-                ElseIf err = "d" Then
-                    FileSystem.Kill(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + item)
-                End If
-                'klasör ve kategorileri silme: .. ile birlikte içindekileri de sil
+            ElseIf type = 1 Then
+                Directory.Delete(MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + item)
             End If
         Catch ex As Exception
             MsgBox("Please manually delete your files, folders or categories..")
@@ -759,5 +746,52 @@ Public Class Form1
             My.Computer.FileSystem.MoveDirectory(folder, MainPath + "\Categories\" + nm)
         Catch ex As Exception
         End Try
+    End Sub
+
+    Private Sub ListView1_DragEnter(sender As Object, e As DragEventArgs) Handles ListView1.DragEnter
+        'Listview1 dosya - drag enter
+        If e.Data.GetDataPresent(DataFormats.FileDrop, False) = True Then
+            e.Effect = DragDropEffects.All
+        End If
+
+    End Sub
+
+    Private Sub ListView1_DragDrop(sender As Object, e As DragEventArgs) Handles ListView1.DragDrop
+        'Listview1 file - dragdrop
+        Dim DroppedItems As String() = e.Data.GetData(DataFormats.FileDrop)
+
+        For Each f In DroppedItems
+            Dim myfile As String = f
+
+            FName(myfile).ToString.Remove(FName(myfile).ToString.LastIndexOf("."))
+            System.IO.File.Move(myfile, MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + FName(myfile))
+        Next
+
+    End Sub
+
+    Public Function FName(path As String)
+        'dosya ismini al
+        Return System.IO.Path.GetFileName(path)
+    End Function
+
+    Private Sub ListView2_DragEnter(sender As Object, e As DragEventArgs) Handles ListView2.DragEnter
+        'listview2 klasör - dragenter
+        If e.Data.GetDataPresent(DataFormats.FileDrop, False) = True Then
+            e.Effect = DragDropEffects.All
+        End If
+
+    End Sub
+
+    Private Sub ListView2_DragDrop(sender As Object, e As DragEventArgs) Handles ListView2.DragDrop
+        'listview2 klasör - dragdrop
+        Dim DroppedItems As String() = e.Data.GetData(DataFormats.FileDrop)
+
+        For Each f In DroppedItems
+            Dim myfile As String = f
+            Dim myname As String = f.Split("\").Last
+
+            System.IO.Directory.Move(myfile, MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + myname)
+        Next
+
     End Sub
 End Class

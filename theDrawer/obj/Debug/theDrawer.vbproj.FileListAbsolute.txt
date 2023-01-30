@@ -25,3 +25,4 @@ C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.application
 C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.exe
 C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.xml
 C:\Users\NoPlayer\Desktop\TheDrawer\theDrawer\obj\Debug\theDrawer.pdb
+C:\Users\NoPlayer\Desktop\theDrawer\theDrawer\obj\Debug\theDrawer.vbprojResolveAssemblyReference.cache
