@@ -77,31 +77,31 @@ Public Class Form1
                 ListView1.Left = Button1.Left 'ListView2.Left - ListView1.Width - 15
                 ListView2.Left = ListView1.Left + ListView1.Width + 10
             End If
-            Button6.Left = ListView1.Left
-            Button6.Width = ListView1.Width * 2 + 15
-            Button6.Show()
+            PictureBox1.Left = ListView1.Left
+            PictureBox1.Width = ListView1.Width * 2 + 15
+            PictureBox1.Show()
 
         Else
 
             ListBox1.Show()
-            Button6.Hide()
+            PictureBox1.Hide()
 
-            ListBox2.Location = New Point(635, 48)
-            ListBox2.Size = New Size(137, 324)
+            ListBox2.Location = New Point(655, 48)
+            ListBox2.Size = New Size(217, 324)
 
-            ListView2.Location = New Point(395, 48)
+            ListView2.Location = New Point(412, 48)
             ListView2.Size = New Size(237, 330)
 
-            ListView1.Location = New Point(155, 48)
+            ListView1.Location = New Point(169, 48)
             ListView1.Size = New Size(237, 330)
 
             'GroupBox1.Location = New Point(12, 43)
             'GroupBox1.Size = New Size(137, 337)
             ListBox1.Location = New Point(12, 48)
-            ListBox1.Size = New Size(137, 329)
+            ListBox1.Size = New Size(151, 324)
 
-            Button2.Location = New Point(682, 12)
-            Button4.Location = New Point(697, 386)
+            Button2.Location = New Point(782, 12)
+            Button4.Location = New Point(797, 386)
         End If
 
     End Sub
@@ -335,7 +335,7 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Başlangıç
 
-        Button6.Hide()
+        PictureBox1.Hide()
 
         Firstload.fl()
 
@@ -354,11 +354,6 @@ Public Class Form1
 
         Timer2.Start()
 
-    End Sub
-
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        'Exit
-        Application.Exit()
     End Sub
 
     Private Sub KlasörToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles KlasorToolStripMenuItem3.Click
@@ -831,5 +826,10 @@ Public Class Form1
             System.IO.Directory.Move(myfile, MainPath + "\Categories\" + ListBox1.SelectedItem.ToString + "\" + myname)
         Next
 
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        'Exit
+        Application.Exit()
     End Sub
 End Class

@@ -32,29 +32,6 @@ Public Class Form2
             GroupBox4.ForeColor = Color.Black
         End If
 
-        '--------------------
-
-        If My.Settings.way = vbNullString Then
-            My.Settings.way = "1"
-
-            ComboBox2.SelectedIndex = 0
-        ElseIf My.Settings.way = "1" And Not ComboBox2.SelectedIndex = 0 Then
-            ComboBox2.SelectedIndex = 0
-        ElseIf My.Settings.way = "2" And Not ComboBox2.SelectedIndex = 1 Then
-            ComboBox2.SelectedIndex = 1
-        ElseIf My.Settings.way = "3" And Not ComboBox2.SelectedIndex = 2 Then
-            ComboBox2.SelectedIndex = 2
-        End If
-
-        '--------------------
-
-        Try
-            If Not My.Settings.ctgr = 0 And Not ComboBox1.SelectedIndex = My.Settings.ctgr - 1 Then
-                ComboBox1.SelectedIndex = My.Settings.ctgr - 1
-            End If
-        Catch ex As Exception
-        End Try
-
         category(1)
 
         Label2.Text = (TrackBar1.Value * 28) + 28
@@ -81,6 +58,30 @@ Public Class Form2
 
 
         Timer1.Start()
+
+        '--------------------
+
+        If My.Settings.way = vbNullString Then
+            My.Settings.way = "1"
+
+            ComboBox2.SelectedIndex = 0
+        ElseIf My.Settings.way = "1" And Not ComboBox2.SelectedIndex = 0 Then
+            ComboBox2.SelectedIndex = 0
+        ElseIf My.Settings.way = "2" And Not ComboBox2.SelectedIndex = 1 Then
+            ComboBox2.SelectedIndex = 1
+        ElseIf My.Settings.way = "3" And Not ComboBox2.SelectedIndex = 2 Then
+            ComboBox2.SelectedIndex = 2
+        End If
+
+        '--------------------
+
+        Try
+            If Not My.Settings.ctgr = 0 And Not ComboBox1.SelectedIndex = My.Settings.ctgr - 1 Then
+                ComboBox1.SelectedIndex = My.Settings.ctgr - 1
+            End If
+        Catch ex As Exception
+        End Try
+
     End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged

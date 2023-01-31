@@ -54,12 +54,13 @@ Partial Class Form1
         Me.UygulamaVeriKonumuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AktifKlasörKonumuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Button5 = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -75,7 +76,7 @@ Partial Class Form1
         '
         Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button2.Location = New System.Drawing.Point(682, 12)
+        Me.Button2.Location = New System.Drawing.Point(782, 12)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(90, 23)
         Me.Button2.TabIndex = 2
@@ -88,7 +89,7 @@ Partial Class Form1
         Me.ListView1.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.ListView1.ForeColor = System.Drawing.Color.White
         Me.ListView1.LargeImageList = Me.imageList1
-        Me.ListView1.Location = New System.Drawing.Point(155, 48)
+        Me.ListView1.Location = New System.Drawing.Point(169, 48)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Size = New System.Drawing.Size(237, 330)
@@ -107,7 +108,7 @@ Partial Class Form1
         Me.ListView2.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.ListView2.ForeColor = System.Drawing.Color.White
         Me.ListView2.LargeImageList = Me.imageList2
-        Me.ListView2.Location = New System.Drawing.Point(395, 48)
+        Me.ListView2.Location = New System.Drawing.Point(412, 48)
         Me.ListView2.MultiSelect = False
         Me.ListView2.Name = "ListView2"
         Me.ListView2.Size = New System.Drawing.Size(237, 330)
@@ -127,9 +128,9 @@ Partial Class Form1
         Me.ListBox2.ForeColor = System.Drawing.Color.White
         Me.ListBox2.FormattingEnabled = True
         Me.ListBox2.ItemHeight = 16
-        Me.ListBox2.Location = New System.Drawing.Point(635, 48)
+        Me.ListBox2.Location = New System.Drawing.Point(655, 48)
         Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(137, 324)
+        Me.ListBox2.Size = New System.Drawing.Size(217, 324)
         Me.ListBox2.TabIndex = 3
         '
         'Button3
@@ -145,7 +146,7 @@ Partial Class Form1
         'Button4
         '
         Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button4.Location = New System.Drawing.Point(697, 386)
+        Me.Button4.Location = New System.Drawing.Point(797, 386)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 25)
         Me.Button4.TabIndex = 6
@@ -158,7 +159,7 @@ Partial Class Form1
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EkleToolStripMenuItem1, Me.OluşturToolStripMenuItem1, Me.OpenLocationToolStripMenuItem, Me.AboutToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 422)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(784, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(884, 24)
         Me.MenuStrip1.TabIndex = 8
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -285,27 +286,14 @@ Partial Class Form1
         'ListBox1
         '
         Me.ListBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.ListBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
+        Me.ListBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.ListBox1.ForeColor = System.Drawing.Color.White
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.ItemHeight = 16
+        Me.ListBox1.ItemHeight = 20
         Me.ListBox1.Location = New System.Drawing.Point(12, 48)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(137, 324)
+        Me.ListBox1.Size = New System.Drawing.Size(151, 324)
         Me.ListBox1.TabIndex = 2
-        '
-        'Button6
-        '
-        Me.Button6.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
-        Me.Button6.ForeColor = System.Drawing.Color.White
-        Me.Button6.Location = New System.Drawing.Point(155, 0)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(75, 35)
-        Me.Button6.TabIndex = 9
-        Me.Button6.Text = "EXIT"
-        Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button6.UseVisualStyleBackColor = False
         '
         'Timer1
         '
@@ -320,11 +308,20 @@ Partial Class Form1
         Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button5.BackgroundImage = Global.theDrawer.My.Resources.Resources.reset_32
         Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button5.Location = New System.Drawing.Point(636, 386)
+        Me.Button5.Location = New System.Drawing.Point(766, 386)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(25, 25)
         Me.Button5.TabIndex = 7
         Me.Button5.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.DarkRed
+        Me.PictureBox1.Location = New System.Drawing.Point(155, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(477, 35)
+        Me.PictureBox1.TabIndex = 10
+        Me.PictureBox1.TabStop = False
         '
         'Form1
         '
@@ -332,8 +329,8 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(784, 446)
-        Me.Controls.Add(Me.Button6)
+        Me.ClientSize = New System.Drawing.Size(884, 446)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
@@ -355,6 +352,7 @@ Partial Class Form1
         Me.Text = "TheDrawer"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -378,7 +376,6 @@ Partial Class Form1
     Friend WithEvents UygulamaVeriKonumuToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AktifKlasörKonumuToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ListBox1 As ListBox
-    Friend WithEvents Button6 As Button
     Friend WithEvents EkleToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents DosyaToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents KlasorToolStripMenuItem2 As ToolStripMenuItem
@@ -395,4 +392,5 @@ Partial Class Form1
     Friend WithEvents Timer2 As Timer
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CategoryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
